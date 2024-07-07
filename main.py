@@ -10,13 +10,14 @@ def get_num_words(text):
     return len(words)
 
 def get_chars_dict(text):
-    lowered_string = text.lower()
     chars = {}
-    for char in lowered_string:
-        if char in chars:
-            chars[char] += 1
-        else:
-            chars[char] = 1
+    for c in text:
+        if c.isalpha():
+            lowered = c.lower()
+            if lowered in chars:
+                chars[lowered] += 1
+            else:
+                chars[lowered] = 1
     return chars
 
 def get_book_text(path):
